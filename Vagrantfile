@@ -2,6 +2,10 @@ Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu2004"
   
   config.vbguest.auto_update = false if Vagrant.has_plugin?("vagrant-vbguest")
+   
+   config.vm.hostname = "gitlab-runner"
+
+   config.vm.define "gitlab-runner"
 
    config.vm.network "private_network", ip: "192.168.56.200"
 
