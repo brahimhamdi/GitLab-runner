@@ -10,8 +10,8 @@ Vagrant.configure("2") do |config|
    config.vm.network "private_network", ip: "192.168.56.200"
 
    config.vm.provider "virtualbox" do |vb|
-     vb.memory = "4096"
-     vb.cpus = "1"
+     vb.memory = "8192"
+     vb.cpus = "2"
    end
 
    config.vm.provision "shell", inline: <<-SHELL
@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
      sudo apt update
      sudo apt install virtualbox -y
      sudo mkdir /etc/vbox
-     echo '* 0.0.0.0/0 ::/0' /tmp/networks.conf
+     echo '* 0.0.0.0/0 ::/0' > /tmp/networks.conf
      sudo cp /tmp/networks.conf /etc/vbox/
 
    SHELL
