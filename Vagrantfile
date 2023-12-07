@@ -32,7 +32,9 @@ Vagrant.configure("2") do |config|
      # Install VirtualBox
      sudo apt update
      sudo apt install virtualbox -y
-     sudo apt install virtualbox-ext-pack -y
+     sudo mkdir /etc/vbox
+     echo '* 0.0.0.0/0 ::/0' /tmp/networks.conf
+     sudo cp /tmp/networks.conf /etc/vbox/
 
    SHELL
 end
